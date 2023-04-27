@@ -1,0 +1,7 @@
+---------------------- Java Script ------------------
+
+--> Java Script is a light weight (Just-In-Time) JIT interepted programming language.
+--> JIT is the process of translating code in browser.
+--> Interpeted is the process of line-by-line translation.
+--> Several technologies use JavaScript with a compiler and AOT techniques.
+--> JavaScript compilers are  : Babel & V8
