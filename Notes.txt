@@ -5,3 +5,46 @@
 --> Interpeted is the process of line-by-line translation.
 --> Several technologies use JavaScript with a compiler and AOT techniques.
 --> JavaScript compilers are  : Babel & V8
+--> AOT means Ahead-of-Time, code is compiles at application level.
+
+--> JavaScript is a language used in various application environments
+                1) Client side          - HTML, Angular, React,Vue     **(Currently used in this course)**
+                2) Server side          - NodeJS
+                3) Database             - MongoDB
+                4) Animations           - Flash, 3DS Max, CAD systems 
+
+--> JavaScript supports various prgraming approaches
+                1) Functional programming
+                2) Structural programming
+                3) imperative pr0gramming
+                4) Object Oriented Programming etc ..
+
+Note:- JS is not an OOP language. It Just supports only few features of OOP.
+
+----------------  JavaScript Client Side ----------------
+
+--> JS is used on client side to reduce the burden on server.
+--> It reduces round trips.
+--> It can reduce burden on server by handling various interactions on client side.
+
+--> JS is used client side with HTML for :
+                1. DOM Manipulations
+                2. Client Side interactions
+                3. Client Side Validations
+
+        --> DOM manipulations include 
+                1. Adding element into DOM
+                2. Removing element into DOM
+                3. Updating data into DOM
+
+        --> Client Side interactions include
+                1. location access
+                2. Navigation access
+                3. History access
+                4. Plugins, MIME Types etc..
+        
+        --> Client Side Validations is the process of verifying user input to ensure
+            that contradictory and unauthorized data is not stored into Database.
+
+--> Evolution of JavaScript: 
+                
