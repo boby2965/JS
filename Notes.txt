@@ -16,7 +16,7 @@
 --> JavaScript supports various prgraming approaches
                 1) Functional programming
                 2) Structural programming
-                3) imperative pr0gramming
+                3) Imperative programming
                 4) Object Oriented Programming etc ..
 
 Note:- JS is not an OOP language. It Just supports only few features of OOP.
@@ -46,5 +46,85 @@ Note:- JS is not an OOP language. It Just supports only few features of OOP.
         --> Client Side Validations is the process of verifying user input to ensure
             that contradictory and unauthorized data is not stored into Database.
 
---> Evolution of JavaScript: 
-                
+------------------ Draw backs of JavaScript -------------
+
+--> It is not a strongly typed language.
+        variable x=10;          x is a number type
+        x= "John";              x is a string type
+
+--> It is not implicitly strictly typed.  (Ti is about Rules of programming)
+        userName = "John";  (normally not valid as there is no decleration of data type) // valid in JavaScript
+
+--> It will not support all fratures of OOP.
+--> Code level security issues
+--> Extensibility issues
+
+            Solution: TypeScript (but this could not be run directly in browser)
+
+----------------- Evolution of JavaScript --------------
+
+--> Client side script started with ECMA script in early 1970's.
+--> Internet started with browser called "Mosaic"
+            Markup lang : GML
+            Scripting   : ECMA script
+--> 1995 Netscape Communications - Browser Netscape Communicator  (Every browser now-a-days follow this browsers Architecture)
+            Markup lang : HTML
+            Scripting   : ECMA Script (not suitable for latest browser)
+        Netscape appointed "Brendan Eich" to develop a script for this browser 
+            Script Name : Moca  => Live script 
+        Netscape given the responsibility of live script to a company "Sun Microsystems"
+            Sun renamed live Script => Java Script
+
+--> 2000 Netscape stopped its services and JavaScript was given to "ECMA".
+            ES2022 ==> ECMA script 2022
+            ES5 => ES-2015
+            ES6 => ES-2016
+            ES7 => ES-2017
+
+    HTML        --> WHATWG
+    JavaScript  --> ECMA
+    HTML, CSS, JavaScript : Documentation => MDN => Brendan Eich
+
+-------------- Integration of JS into HTML ---------------
+
+1) Inline 
+2) Embedded
+3) External File
+
+Inline : 
+    - It allows to write JS function directly within the element start tag
+    - Script is native and faster when it is Inline
+    - However t is hard to reuse and extend
+
+    syntax: 
+        <button onclick="window.print()"> Print </button>
+
+Ebedded : 
+    - JS functions are defined in a <script> container 
+    - so that you can access and use from any location in page.
+    - slower when compared to Inline
+    - Easy to extend and reuse
+
+    syntax : 
+        <script>
+        function Name()
+        {
+
+        }
+        </script>
+
+        <button onclick="Name()"> Print </button>
+
+Note :  - The MIME type for JavaScript is "text/javascript" or "language=javascript"
+        - MIME type changes according to compiler and module systems
+                "text/babel"
+                "text/jsx"
+                "module"
+        - To run the JavaScript in "strict mode" we need to use "use strict" in the <script> tag 
+            <script>
+                "use strict"
+                document.write("Hello World");
+            </script> 
+            
+External File :
+    -
