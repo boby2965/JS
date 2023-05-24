@@ -125,6 +125,123 @@ Note :  - The MIME type for JavaScript is "text/javascript" or "language=javascr
                 "use strict"
                 document.write("Hello World");
             </script> 
-            
+        - To target JS for legacy browsers is done by enclosing the JS code in HTML comments
+            <script type=text/javascript>
+                <!-- 
+                function PrintPage(){
+                        window.print();
+                }
+                -->
+            </script>    
+
 External File :
-    -
+    - add a new javascript file into "src/script" folder
+    - add your JS function in ".js" file
+
+                printing.js
+        "usestrict"
+        <!-- 
+                function PrintPage(){
+                        window.print();
+                }
+        -->
+    - link JS file to HTML page 
+        <script type"text/javascript" src="..src/scripts/printing.js"></script>
+
+Note: External file for web page will increase the number of requests for page and also the page load time will increase
+        - to Minify (To reduce the size of the file) - they are used in production 
+                it is the process of compressing JS file
+                        https://jsminify.org/  => paste your code => minify  => copy => add to "printing.min.js"
+
+        - the minified files cannot be used in developement as they can only catch the problem but cannot report the problem
+        (It cannot show where the error occured )
+        
+        
+        
+----------------    How JavaScript refers HTML elements   -------------------
+
+1) javascript can refer html elements by DOM hierarchy
+
+                                        BOM (Browser Object Model)
+
+                                                window
+                                                  |
+                ------------------------------------------------------
+                |                   |              |                |
+                History         Location        Document        Navigatior      
+                                                   
+                                                (index.html)
+                                                    |
+                                        -------------------------
+                        
+                                        images[]              DOM (Document Object Model)
+                                        links[]
+                                        forms[] ---> elements[]
+                                                        button,textbox,checkbox
+                                       
+
+        syntax: 
+                window.document.images[0].src="../public/images/good-morning-image-531.jpg"
+                window.document.forms[0].elements[1].value="Register"
+                window.document.forms[1].elements[1].value="Login"
+
+        Note:   
+                - changing the position of any element in page needs change in the code snippet.
+
+2) JS can refer HTML elements by using their reference "name"
+        syntax: 
+                <img name="pic">
+                <script>
+                {
+                        pic.src=""
+                        frmRegister.btnRegister.value="Register"
+                }
+                </script>
+
+        - we can't refer any child element directly. It must be accessed only with reference of it parent.              
+       
+                btnRegister.value="Register"                    // invalid
+                frmRegister.btnRegister.value="Register"        // valid
+
+        - "name" attribute can be common for several elements which throws an error.
+
+                <input type="radio" name="gender" value="male">
+                <input type="radio" name="gender" value="female">
+
+3) JS can refer HTMl elements by using their "ID"
+        JS provides a document method
+                "document.getElementById()"
+        - by using this we can get any element from any hierarchy
+
+        syntax: 
+                <img id="pic">
+
+                {
+                        document.getElementById("pic").src="";
+                }
+        - ID is a selector used for CSS hence JS ID reference conflicts with CSS ID.
+
+4) JS can refer HTML elements by using CSS selectors.
+        - JS provides a document method 
+                "document.querySelector()"
+
+        syntax: 
+        <img class="card-img-top">
+
+        {
+                document.querySelector(".card-img-top" ).src="";
+
+        }
+
+        <input type="submit">
+        {
+                document.querySelector("input[type=submit]").value= "Register";
+        } 
+
+        <input type="button" id="btnLogin">
+        {
+                document.querySelector("#btnLogin").value= "";
+        } 
+
+---------------------   JavaScript Input and Output  -----------------------
+
