@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Techniques</title>
+    <script type="text/javascript">
+        function NewClick(){
+           result =  prompt("Enter Folder Name", new_folder);
+           if (result== null){
+                alert("You cancelled ...")
+           }
+           else if(result==""){
+                alert("Name cannot be empty");
+           }
+           else{
+            document.querySelector("p").innerHTML += "Folder Created : " + result;
+           }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="NewClick()">New Folder</button>
+    <p></p>
+</body>
+</html>

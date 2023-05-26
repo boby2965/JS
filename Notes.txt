@@ -169,7 +169,7 @@ Note: External file for web page will increase the number of requests for page a
                 ------------------------------------------------------
                 |                   |              |                |
                 History         Location        Document        Navigatior      
-                                                   
+                                                   |
                                                 (index.html)
                                                     |
                                         -------------------------
@@ -221,7 +221,7 @@ Note: External file for web page will increase the number of requests for page a
                 }
         - ID is a selector used for CSS hence JS ID reference conflicts with CSS ID.
 
-4) JS can refer HTML elements by using CSS selectors.
+4) JS can refer HTML elements by using Query Selectors - CSS selectors.
         - JS provides a document method 
                 "document.querySelector()"
 
@@ -243,5 +243,112 @@ Note: External file for web page will increase the number of requests for page a
                 document.querySelector("#btnLogin").value= "";
         } 
 
----------------------   JavaScript Input and Output  -----------------------
+---------------------   JavaScrip Output Techniques  -----------------------
 
+- programming languages are used to handle communication between user and the device.
+- a language takes input from the user, processes the input and generates a response costumised to every request.
+- output is the process of rendering result to the client.
+- JS output is handled by using various properties and methods.
+                1) alert()
+                2) confirm()
+                3) document.write()
+                4) innerText
+                5) innerHTML
+                6) outerHTML
+                7) console methods
+
+
+        alert() :
+                - alert is a message box that pops up from the browser window.
+                - It is a member of "window" Object in BOM.
+                - It can display message and seek confirmation with OK.
+                - It will not allow to cancel.
+
+                syntax:
+                         alert("Your message");
+
+                - Message is a sting or expression and only RC data type (only allows plain text content).
+                syntax: 
+                        alert(20+30);
+                
+                -If you want message in multiple lines then use "\n" for line break.
+                syntax: 
+                        alert("line-1 \n line-2");
+                
+        confirm():
+                - It is a JS "window" method same as the alert() but provides cancel button
+                - It is a boolean method, which returns "true" or "false".
+
+                        true = on OK click
+                        false = on Cancel click
+
+                syntax: 
+                        confirm("string |expression ");
+
+        document.write() :
+                - It is a output method that renders output in new screen.
+                - It is a technique that allows a markup for presentation.
+
+                syntax: 
+                        document.write("string | expression | markup");
+
+        innerText:
+                - It is a property used for HTML elements that can display text content.
+                ex: <div>, <span></span>, <p> </p>,
+                
+                syntax: 
+                        element.innerText="string";
+                
+                - innrtText is RC dataType and will not allow Markup
+                - if you are trying to render output in the same page then you can use innerText.
+        
+        innerHTML :
+                - It is similar to innerText but allows formats for text
+                - You can render markup by using innerHTML.
+
+                syntax:
+                element.innerHTML= "string | expression | markup"
+        
+        outerHTML:
+                - outerHTML is a property similar to innerHTML.
+                - It can replace the existing element with new elements.
+                - innerHTML will not replace elements, it can just render element with in the context of another element.
+                
+                syntax:
+                        element.outerHTML = "string | expression | markup";
+
+
+        Console Methods:
+                - Every browser provides a Console
+                - console is a  CLI (Command line tool) used by developers to test various languages related methods and properties.
+                - console methods for output are
+                        console.log()           [Contextual]
+                        console.warn()
+                        console.error()
+                        console.info()
+                        console.debug()
+
+                syntax:
+                        console.log("string | expression");
+                
+                - console is not for markup.
+                - Multiple lines can be defined by using "\n" as line break.
+
+-------------------- JavaScript input Techniques ------------------
+
+        - JS can take input from user by using 3 techniques
+                1) Query string
+                2) prompt()
+                3) HTML form input elements
+
+
+        prompt():
+                - It is an input box provided by Javascript "window" object.
+                - It allows to input a string
+                - prompt() method returns
+                        null => cancel
+                        string => OK
+                
+                syntax: 
+                        prompt("Message", "default_value");
+                        prompt("Message");
