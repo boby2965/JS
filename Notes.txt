@@ -336,10 +336,10 @@ Note: External file for web page will increase the number of requests for page a
 
 -------------------- JavaScript input Techniques ------------------
 
-        - JS can take input from user by using 3 techniques
-                1) Query string
-                2) prompt()
-                3) HTML form input elements
+- JS can take input from user by using 3 techniques
+        1) Query string
+        2) prompt()
+        3) HTML Form input elements
 
 
         prompt():
@@ -352,3 +352,15 @@ Note: External file for web page will increase the number of requests for page a
                 syntax: 
                         prompt("Message", "default_value");
                         prompt("Message");
+        
+        Javascript input using Form elements:
+                - HTML form provides various elements for input like 
+                        textbox         checkbox
+                        number          radio
+                        password        color
+                        range           textarea
+                        email
+                        url
+                        file
+                        date
+
