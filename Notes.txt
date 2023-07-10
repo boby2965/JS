@@ -52,7 +52,7 @@ Note:- JS is not an OOP language. It Just supports only few features of OOP.
         variable x=10;          x is a number type
         x= "John";              x is a string type
 
---> It is not implicitly strictly typed.  (Ti is about Rules of programming)
+--> It is not implicitly strictly typed.  (This is about Rules of programming)
         userName = "John";  (normally not valid as there is no decleration of data type) // valid in JavaScript
 
 --> It will not support all fratures of OOP.
@@ -267,7 +267,7 @@ Note: External file for web page will increase the number of requests for page a
                 syntax:
                          alert("Your message");
 
-                - Message is a sting or expression and only RC data type (only allows plain text content).
+                - Message can a sting or expression and only RC data type (only allows plain text content).
                 syntax: 
                         alert(20+30);
                 
@@ -294,16 +294,18 @@ Note: External file for web page will increase the number of requests for page a
 
         innerText:
                 - It is a property used for HTML elements that can display text content.
-                ex: <div>, <span></span>, <p> </p>,
+                ex: <div>, <span></span>, <p> </p>, <h2></h2>, <blockquote></blockquote>, <li></li>
                 
                 syntax: 
                         element.innerText="string";
+                Ex:
+                        document.querySelector("p").innerText="Record Deletd"
                 
                 - innrtText is RC dataType and will not allow Markup
                 - if you are trying to render output in the same page then you can use innerText.
         
         innerHTML :
-                - It is similar to innerText but allows formats for text
+                - It is similar to innerText but allows to format "text" in the HTML by using innerHtml method.
                 - You can render markup by using innerHTML.
 
                 syntax:
@@ -343,9 +345,9 @@ Note: External file for web page will increase the number of requests for page a
 
 
         prompt():
-                - It is an input box provided by Javascript "window" object.
-                - It allows to input a string
-                - prompt() method returns
+        - It is an input box provided by Javascript "window" object.
+        - It allows to input a string
+        - prompt() method returns
                         null => cancel
                         string => OK
                 
@@ -354,7 +356,7 @@ Note: External file for web page will increase the number of requests for page a
                         prompt("Message");
         
         Javascript input using Form elements:
-                - HTML form provides various elements for input like 
+        - HTML form provides various elements for input like 
                         textbox         checkbox
                         number          radio
                         password        color
@@ -362,5 +364,219 @@ Note: External file for web page will increase the number of requests for page a
                         email
                         url
                         file
-                        date
+        
+        Query String:
+        - Query tring is data appended into URL 
+        - It is defined in browser address bar 
+        - Query string is appended by using "?" and "&"
+        
+                syntax:
+                        https://127.0.0.1:5500/page.html?name=value&name=value 
 
+        - You can access the query string by using JavaScript "location.search"
+                [location object => search property]
+        
+        Note:
+                You need few string functions to read and extract string.
+                        indexOf()       => It returns index number of any specified character.
+                        slide()         => It returns the chars from specified index.
+                syntax:
+                        url?username=John       
+                        
+                        str=location.search;
+                        str.slice(str.indexOf("=")+1) ;  // John 
+                => query string is passed in browser as 
+                        ?username=John 
+
+-----------------    JavaScript Language Basics    -----------------
+1. variables 
+2. Data Types 
+3. Operators 
+4. Statements 
+5. Functions 
+
+        Variables:
+        ----------
+        - Variables are storage location in memory where you can store a value and use as a part of any expression.
+        syntax:
+                <script>
+                        username=prompt("Enter Your Name")
+                        document.write("Hello!" + username + "<br>");
+                        document.write("Hi" + username);
+                </script>
+
+        - JavaScript allows to configure a variable directly without initialization or decleration if it is not in strict mode.
+                <script>
+                        username= "John";                        //valid 
+                        document.write=(username);
+                </script>
+
+                 <script>
+                        "use strict"
+                        username= "John";                        //invalid 
+                        document.write=(username);
+                </script>
+
+        - In strict mode JavaScript variable must be declared or initialized.
+        - Variables in JS are declared by using 3 keywords
+                1) var 
+                2) let  
+                3) const 
+        
+        - Every variable configuration comprises of 3 phases 
+         a) Declaration 
+         b) Assignment 
+         c) Initialization 
+
+                var x;          --> Decleration 
+                x = 10;         --> Assignment 
+                var y=20;       --> Initialization 
+                y=30;           --> Assignment  
+
+        FAQ: What is the difference between var, let and const ?
+                var:
+                - It is a function scope variable.
+                - A function scope variable is configured at any block(inside to outside or outside to inside block) and can be 
+                  accessed from any another function.
+                - It allows to configure a variable which is accessible to the current function and all its inner function.
+                - The mechanism of providing access for variable to its inner function is known as "Closure". 
+
+                syntax:
+                        <script>
+                                function f1(){
+                                        var x;
+                                        x=10;
+                                        if(x==10)
+                                        {
+                                        var y=20;
+                                        document.write("x=" + x + "<br>" + "y=" + y );
+                                        }
+                                }
+                                f1();
+                        </script>
+
+                        (or)
+
+                        <script>
+                                function f1(){
+                                        var x;
+                                        x=10;
+                                        if(x==10)
+                                        {
+                                        var y=20;
+                                        }
+
+                                        document.write("x=" + x + "<br>" + "y=" + y );
+                                }
+                                f1();
+                        </script>
+
+                - It allows declaring, assignment and initialization.
+                - It allows "shadowing". 
+                - Shadowing is the process of re-declaring or initialization same name identifier with in the scope.
+                syntax:
+                        {
+                                var x=10;
+                                var x= 20;    // shadowing  ==> valid 
+                        }
+
+                - It allows "hoisting".
+                - Hoisting is a technique followed by interpeter, where it allows to use a variable and declare or initialize later.
+                There is no order in declaring and using.
+
+                syntax:
+                        <script>
+                                "use strict"
+                                function f1(){
+                                        x=10;
+                                        document.write("x=" + x);
+                                        var x;              // hoisting 
+                                }
+                                f1();
+                        </script>
+                Let:
+                ----
+                - It is used to configure block scope variable.
+                - Block scope variable is accessible within the specified block and all its inner block.
+                - The members of inner block are not accessible to outer block if defined by using "let".
+                - It allows declaring, assignment, and Initialization.
+
+                syntax:
+                        <script>
+                                function f1(){
+                                        let x;              // declaration
+                                        x=10;               // assignment 
+                                        if(x==10)
+                                        {
+                                        let y=20;       // initilization 
+                                        document.write("x=" + x + "<br>" + "y=" + y );
+                                        }
+                                }
+                                f1();
+                        </script>
+
+                        (or)
+
+                        <script>
+                                function f1(){
+                                        let x;
+                                        x=10;
+                                        if(x==10)
+                                        {
+                                        let y=20;               // not valid 
+                                        
+                                        }
+                                        document.write("x=" + x + "<br>" + "y=" + y );
+                                }
+
+                                f1();
+                        </script>
+                
+                - It will not allow shadowing.
+                - It will not allow hoisting.
+                
+                const:
+                ------
+                - It is also block scope.
+                - It allows only initialization, no declaration and no assignment.
+                - It will not allow hoisting and shadowing.
+                syntax:
+                        <script>
+                                "use strict";
+                                function f1(){
+                                        const x;
+                                        x=10;               // not valid 
+                                        document.write("x=" + x);
+                                }
+                                f1();
+                        </script>
+
+                        <script>
+                                "use strict";
+                                function f1(){
+                                        const x=5;
+                                        x=10;               // not valid 
+                                        document.write("x=" + x);
+                                }
+                                f1();
+                        </script>
+                         <script>
+                                "use strict";
+                                function f1(){
+                                        const x=5;
+                                        const x=10;               // not valid 
+                                        document.write("x=" + x);
+                                }
+                                f1();
+                        </script>
+
+                         <script>
+                                "use strict";
+                                function f1(){                                  
+                                        document.write("x=" + x);  //not valid 
+                                        const x=5;
+                                }
+                                f1();
+                        </script>
+                
+                - 
