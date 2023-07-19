@@ -379,7 +379,7 @@ Note: External file for web page will increase the number of requests for page a
         Note:
                 You need few string functions to read and extract string.
                         indexOf()       => It returns index number of any specified character.
-                        slide()         => It returns the chars from specified index.
+                        slice()         => It returns the chars from specified index.
                 syntax:
                         url?username=John       
                         
@@ -660,7 +660,7 @@ Note: External file for web page will increase the number of requests for page a
 
                 Primitive Type:
                 ---------------
-                - They are immutuable types.
+                - They are immutuable types. [Structure can't be changed.]
                 - They have a fixed range for value.
                 - The structure of value can't change.
                 - They are stored in memory stack [Last in First Out]
@@ -671,5 +671,68 @@ Note: External file for web page will increase the number of requests for page a
                         d) null 
                         e) undefined 
                         f) symbol 
+                       
+                        Number Type:
+                        ------------
+                        - JavaScript number type refers to numreic values which include 
+                                Signed Integer                  => -6, 
+                                Unsigned Integer                => 4
+                                Floating point                  => 34.00                [2:2]
+                                Double                          => 342.535              [3:3]
+                                Decimal                         => 3567.30             [29 Decimal places]
+                                Binary                          => 0b1010 
+                                Hexa                            => 0fx023
+                                Octa                            => 0o724
+                                Bigint                          => 2n
+                                Exponent                        => 2e3                 [2000] 2x10(3)
                         
+                        - Every input from HTML is considered as "String Type", which you have to convert into number 
+                        by using parsing methods.
+                                parseInt();
+                                parseFloat();
+
+                        syntax:
+                        -------
+                         var age = "22";
+                         document.write("You will be " + (age+1) + " next year.");      // 221
+
+                         var age = parseInt("22");
+                         document.write("You will be " + (age+1) + " next year.");      //23
+
+                         var age = parseInt("12.45");
+                         document.write("You will be " + (age+1) + " next year.");      //13
+
+                         var age = parseFloat("12.45");
+                         document.write("You will be " + (age+1) + " next year.");      //13.45
+
+                        - You can validate the number input by using the function " isNAN() ".
+                        - isNaN is a boolean function that returns "true" when input value is not a number.
+                        
+                        syntax:
+                                var age="3A";
+
+                                if(isNaN(age)){                => true 
+                                        ... code ....
+                                }
+                        - You have to convert a numeric value into "string " to apply string formats 
+                        - javascript numeric values are converted into a string by using "toString" function.
+
+                                var price= 46000;                       // number 
+                                var formattedPrice = price.toString;    // String 
+
+                        - JavaScript provides "Math" object to handle various mathematical operations on numeric values.
+                                Math.PI 
+                                Math.sqrt()
+                                Math.pow()
+                                Math.random()
+                                Math.round()
+                                Math.floor()
+                                Math.ceil()
+                                Math.sin()
+                                Math.cos()
+                                Math.tan()
+                        
+
+
+
 

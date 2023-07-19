@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"> 
+        function submitClick() {
+            // var age = parseInt(document.getElementById("1stAge").value);
+            // document.write("You will be " + (age+1) + " next year.");
+            
+            var rate= parseFloat(document.getElementById("1stRate").value);
+            document.write("Your interest rates are revised with 1 as per RBI rules:" + (rate+1) + " from next month");
+
+        }
+    </script>
+</head>
+<body>
+    Select your age: 
+    <select name="" id="1stAge">
+        <option >14</option>
+        <option >16</option>
+        <option >17</option>
+        <option >18</option>
+        <option >19</option>
+        <option >20</option>
+    </select>
+
+    Select Interest Rate: 
+    <select name="" id="1stRate">
+        <option >14.34</option>
+        <option >16.53</option>
+        <option >17.33</option>
+        <option >18.75</option>
+        <option >19.57</option>
+        <option >20.55</option>
+    </select>
+    <button type="submit" onclick="submitClick()">Submit</button>
+</body>
+</html>
