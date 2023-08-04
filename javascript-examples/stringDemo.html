@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyName(){
+            var userName= document.getElementById("txtName").value;
+            var error= document.getElementById("error");
+            if (userName.length<4){
+                error.innerHTML= "Name is too short - min 4 chars required".fontcolor("red")
+            } else if (userName.length>10){
+                error.innerHTML= "Name is too long - max 10 chars";
+            } else{
+                error.innerHTML="";
+            }
+        }
+        function VerifyEmail(){
+            var email= document.getElementById("txtEmail").value;
+            var emailError= document.getElementById("emailError");
+
+            if (email.indexOf("@") == -1){
+                emailError.innerHTML="Invalid Email - please include @". fontcolor("red");
+            } else {
+                emailError.innerHTML= "";
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="txtName" onkeyup="VerifyName()"></dd>
+        <dd id="error"></dd>
+        <dt>Email</dt>
+        <dd> <input type="text" id="txtEmail" onblur="VerifyEmail()"></dd>
+        <dd id="emailError"></dd>
+    </dl>
+
+</body>
+</html>

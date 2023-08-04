@@ -788,6 +788,10 @@ Note: External file for web page will increase the number of requests for page a
                                 Syntax:
                                         var path = "d:\images\asp.jpg";            => d:imagesasp.jpg
                                         var path = "d:\\images\\asp.jpg";        => d:\images\asp.jpg
+                String Formatting:
+                ------------------
+                        Style Binding:
+                        -------------
 
                         - JavaScript provides various methods and properties to format and manipulate string.
                         - JavaScript methods for formatting a string.
@@ -811,8 +815,8 @@ Note: External file for web page will increase the number of requests for page a
 
                         Note: RC data type elements will not allow all formats, as they are HTML elements.
 
-                Style Binding:
-                --------------
+                        Style Binding:
+                        --------------
 
                         - It is the process of binding CSS attributes to HTML elements dynamically.
                         - You can format string using CSS attributes.
@@ -834,7 +838,7 @@ Note: External file for web page will increase the number of requests for page a
                                         element.style.color = "red";
                                         element.style.backgroundColor="yellow";
 
-                Ex:
+                        Ex:
                         <!DOCTYPE html>
                         <html lang="en">
                         <head>
@@ -872,7 +876,7 @@ Note: External file for web page will increase the number of requests for page a
                         </body>
                         </html>
 
-                Ex:
+                        Ex:
                         <!DOCTYPE html>
                         <html lang="en">
                         <head>
@@ -998,3 +1002,168 @@ Note: External file for web page will increase the number of requests for page a
                         </div>
                         </body>
                         </html>
+                        
+                String Manipulation Methods and Properties:
+                -------------------------------------------
+
+                Member                                  Description
+                --------------                          ----------------------
+                length                                  It returns total count of characters in a string 
+                                                        syntax:
+                                                                var srt = "welcome";
+                                                                str.length;             // 7
+                
+                charAt()                                It returns the character at specified index 
+                                                                var str= "welcome";
+                                                                str.charAt(0);          // w 
+                
+                charCodeAt()                            It returns ascii code of characters at specified index 
+                                                                var str ="Ajay";
+                                                                str.charCodeAt(0);             // 65 
+                
+                indexOf()                               It returns the index number of char specified in the string. If char not 
+                                                        found then it retruns "-1".
+                                                                var str= "welcome";
+                                                                str.indexOf("e");               // 1
+                                                                str.indexOf("@");               // -1
+                
+                lastIndexOf()                           It returns the last occurance index number of specified char 
+                                                                var str= "welcome";
+                                                                str.lastIndexOf("e")            // 7
+
+                startsWith()                            It returns a boolean true if the string starts with the specified char(s).
+                endsWith()                              It returns a boolean true if the string endswith the specified char(s).
+                                                                synatx:
+                                                                        var str= "welcome";
+                                                                        str.startsWith("w");            // true
+                                                                        str.endsWith("w");              // false   
+
+                match()                                 It is used to verify your value with any regular expression and 
+                                                        return boolean true if value is matching the expression.
+
+                                                        Regular expression in Javascript is defined within "/  /" block.
+
+                                                                Syntax:
+                                                                        var value = "david";
+                                                                        var regExp = /[A-Z]{4,10}/;
+                                                                        if(value.match(regExp))     => false
+
+                slice()                                 It is used to extract a string between specified index.
+                substr()                                It reads the specified number of chars from given index.
+                substring()                             It is bi-directional in reading.
+
+                Ex:
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                                <meta charset="UTF-8">
+                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Document</title>
+                                <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+                                <script type="text/javascript">
+                                        function VerifyCard(){
+                                        var card = document.getElementById("txtCard").value;
+                                        var img = document.getElementById("imgCard");
+                                        if(card.startsWith("4455")) {
+                                                img.src = "../public/images/visa.png";
+                                        } else {
+                                                img.src = "../public/images/master.png";
+                                        }
+                                        }
+                                        function VerifySkype(){
+                                        var skype = document.getElementById("txtSkype").value;
+                                        var error = document.getElementById("error");
+                                        if(skype.endsWith("outlook.com")) {
+                                                error.innerHTML ="";
+                                        } else {
+                                                error.innerHTML ="Invalid Skype Id".fontcolor('red');
+                                        }
+                                        }
+                                </script>
+                        </head>
+                        <body class="container-fluid">
+                                <dl class="mt-2 w-25">
+                                        <dt>Your Card Number</dt>
+                                        <dd class="input-group"><input type="text" onblur="VerifyCard()" class="form-control" id="txtCard"><img id="imgCard" height="40" class="input-group-text"></dd>
+                                        <dt>Your Skype Id</dt>
+                                        <dd>
+                                        <input type="text" class="form-control" id="txtSkype" onblur="VerifySkype()">
+                                        </dd>
+                                        <dd id="error"></dd>
+                                </dl>
+                        </body>
+                        </html>
+
+                        Ex: Pattern changing
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                                <meta charset="UTF-8">
+                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Document</title>
+                                <script type="text/javascript">
+                                function VerifyPassword(){
+                                        var password = document.getElementById("txtPassword").value;
+                                        var regExp = /(?=.*[A-Z])\w{4,10}/;
+                                        var error = document.getElementById("error");
+                                        if(password.match(regExp)){
+                                        error.innerHTML = "Strong Password".fontcolor('green');
+                                        } else {
+                                        if(password.length<4) {
+                                                error.innerHTML = "Poor Password".fontcolor('red');
+                                        } else {
+                                                error.innerHTML = "Weak Password".fontcolor('gold');
+                                        }
+                                        }
+                                }
+                                </script>
+                        </head>
+                        <body>
+                                <dl>
+                                        <dt>Your Password</dt>
+                                        <dd><input type="password" onkeyup="VerifyPassword()" id="txtPassword"></dd>
+                                        <dd id="error"></dd>
+                                </dl>
+                        </body>
+                        </html>
+
+                        
+                        FAQ: What is difference between slice, substr and substring methods ?
+                        Ans:
+
+                        1. slice    : It refers the chars between start and end index.
+                                        End index number is optional.
+                                        If end index is defined then it must be greater than start index.
+                        Syntax:
+                                slice(startIndex, endIndex);
+                                slice(4);                           4 to end
+                                slice(4,16);                        4 to 16 index
+                                slice(4,0);                         invalid
+                                slice(4,2);                         invalid
+
+                        2. substr    : It defines the number of chars to read from specified index.
+                                        It can't have any index reference defined bi-directional.
+
+                        Syntax:
+                                substr(startIndex, countOfCharsToRead);
+                                substr(4, 3);                   => reads 3 chars from 4 index
+                                substr(4);                      => reads all chars upto end from 4 index
+                                substr(4,0);                    => no value returned
+                                
+                        3. substring:  It defines the chars between specified index bi-directional.
+
+                        Syntax:
+                                substring(7)                    => reads from 7 index to end
+                                substring(7,0)                  => reads from 7 to 0 index [start]
+                                substring(7, 14)                => reads from 7 index to 14 index
+
+                        Ex:
+                        <script>
+                                var msg = "Welcome to JavaScript";
+                                document.write(msg.slice(7,0) + "<br>");
+                                document.write(msg.substr(7,0) + "<br>");
+                                document.write(msg.substring(7,0));
+                        </script>

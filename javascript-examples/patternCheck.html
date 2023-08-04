@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script type="text/javascript">
+        function VerifyPassword(){
+            var password = document.getElementById("txtPassword").value;
+            var regExp = /(?=.*[A-Z])\w{4,10}/;
+            var error = document.getElementById("error");
+            
+            if(password.match(regExp)){
+                error.innerHTML = "Strong Password".fontcolor('green');
+            } else {
+                if(password.length<4) {
+                    error.innerHTML = "Poor Password".fontcolor('red');
+                } else {
+                    error.innerHTML = "Weak Password".fontcolor('gold');
+                }
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <dl>
+            <dt>Your Password</dt>
+            <dd><input type="password" onkeyup="VerifyPassword()" id="txtPassword"></dd>
+            <dd id="error"></dd>
+        </dl>
+    </body>
+</html>
