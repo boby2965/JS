@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script type="text/javascript">
+                function ShowMessage(){
+                document.getElementById("error").innerHTML = "User name Mandatory - Block Letters".fontcolor('gold');
+                }
+                function VerifyName(){
+                var username = document.getElementById("txtName").value;
+                var error = document.getElementById("error");
+                        if(username==""){
+                                error.innerHTML = "User Name Required";
+                                error.style.color = "red";
+                                error.style.fontWeight = "bold";
+                                error.style.backgroundColor="yellow";
+                                error.style.width="200px";
+
+                        } else {
+                                error.innerHTML = "";
+                                document.getElementById("txtName").value = username.toUpperCase().bold();
+                        }
+                }
+        </script>
+    </head>
+    <body>
+        <dl>
+                <dt>User Name</dt>
+                <dd><input type="text" id="txtName" onfocus="ShowMessage()" onblur="VerifyName()"></dd>
+                <dd id="error"></dd>
+        </dl>
+    </body>
+    </html>

@@ -1,0 +1,17 @@
+<script>
+    var title = prompt("Enter Title");
+    var uid = prompt("Enter User ID Type","Email | Mobile| UserId");
+    var uid_type = prompt("Enter User Id Input Type");
+    var buttonText = prompt("Enter Button Text");
+    var login = `
+        <h4>${title}</h4>
+        <dl>
+                <dt>${uid}</dt>
+                <dd><input type=${uid_type}></dd>
+                <dt>Password</dt>
+                <dd><input type="password"></dd>
+        </dl>
+        <button>${buttonText}</button>
+        `;
+    document.write(login);
+</script>
