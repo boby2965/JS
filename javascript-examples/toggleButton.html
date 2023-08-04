@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script type="text/javascript">
+            function SortClick(){
+                var lblSort = document.getElementById("lblSort");
+                lblSort.className = (lblSort.className=="bi bi-sort-alpha-down")?"bi bi-sort-alpha-up":"bi bi-sort-alpha-down";
+            }
+            function VerifyStock(){
+                var lblStock = document.getElementById("lblStock");
+                var optStock = document.getElementById("optStock");
+                var pic = document.getElementById("pic");
+                lblStock.innerHTML = (optStock.checked==true)?"Hide":"Show";
+                pic.style.display = (optStock.checked==true)?"block":"none";
+            }
+    </script>
+</head>
+<body>
+        <button onclick="SortClick()">
+            <span id="lblSort" class="bi bi-sort-alpha-down"></span>
+        </button>
+        <div>
+            <input type="checkbox" onchange="VerifyStock()" id="optStock"> <label id="lblStock">Show</label>
+        </div>
+        <div id="pic" style="display:none">
+            <img src="../public/images/good-morning-image-531.jpg" width="300" height="300">
+        </div>
+</body>
+</html>

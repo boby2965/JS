@@ -299,7 +299,7 @@ Note: External file for web page will increase the number of requests for page a
                 syntax: 
                         element.innerText="string";
                 Ex:
-                        document.querySelector("p").innerText="Record Deletd"
+                        document.querySelector("p").innerText="Record Deleted"
                 
                 - innrtText is RC dataType and will not allow Markup
                 - if you are trying to render output in the same page then you can use innerText.
@@ -911,8 +911,8 @@ Note: External file for web page will increase the number of requests for page a
                         </body>
                         </html>
 
-                Class Binding:
-                --------------
+                        Class Binding:
+                        --------------
                         - You can apply a CSS class to any string or element dynamicaly.
                         - It is defined by using the attribute "className".
 
@@ -1046,11 +1046,40 @@ Note: External file for web page will increase the number of requests for page a
                                                                 Syntax:
                                                                         var value = "david";
                                                                         var regExp = /[A-Z]{4,10}/;
-                                                                        if(value.match(regExp))     => false
+                                                                        value.match(regExp)     => false
 
                 slice()                                 It is used to extract a string between specified index.
                 substr()                                It reads the specified number of chars from given index.
                 substring()                             It is bi-directional in reading.
+
+                trim()                                  It is used to remove leading spaces in a string.
+                                                        Leading space includes blank space before and after the string.
+
+                                                                Syntax:
+                                                                        var  code = "   4442";
+                                                                        code.trim();            // "4442"
+                
+                split()                                 It splits the string into an array. It identifies the delimeter [separator]
+                                                        and splits the string into multiple elements.
+                                                        The result is a array of strings.
+
+                                                                Syntax:
+                                                                        var str = "A, B";
+                                                                        result= str.split(',');        // result [0] = A
+                                                                                                        // result [1] = B                                                                      
+                        Ex:
+                        <script>
+                                var contacts = "john-9993828812, david-8883727172";
+                                var result = contacts.split(',');
+                                document.write(`${result[0]} <br> ${result[1]}`);
+                        </script>
+
+                        Ex:
+                        <script>
+                                var contacts = "john-9993828812, david-8883727172";
+                                var [john, david] = contacts.split(',');
+                                document.write(john + "<br>" + david);
+                        </script>        
 
                 Ex:
                         <!DOCTYPE html>
@@ -1094,42 +1123,6 @@ Note: External file for web page will increase the number of requests for page a
                                 </dl>
                         </body>
                         </html>
-
-                        Ex: Pattern changing
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                                <meta charset="UTF-8">
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <title>Document</title>
-                                <script type="text/javascript">
-                                function VerifyPassword(){
-                                        var password = document.getElementById("txtPassword").value;
-                                        var regExp = /(?=.*[A-Z])\w{4,10}/;
-                                        var error = document.getElementById("error");
-                                        if(password.match(regExp)){
-                                        error.innerHTML = "Strong Password".fontcolor('green');
-                                        } else {
-                                        if(password.length<4) {
-                                                error.innerHTML = "Poor Password".fontcolor('red');
-                                        } else {
-                                                error.innerHTML = "Weak Password".fontcolor('gold');
-                                        }
-                                        }
-                                }
-                                </script>
-                        </head>
-                        <body>
-                                <dl>
-                                        <dt>Your Password</dt>
-                                        <dd><input type="password" onkeyup="VerifyPassword()" id="txtPassword"></dd>
-                                        <dd id="error"></dd>
-                                </dl>
-                        </body>
-                        </html>
-
                         
                         FAQ: What is difference between slice, substr and substring methods ?
                         Ans:
@@ -1167,3 +1160,142 @@ Note: External file for web page will increase the number of requests for page a
                                 document.write(msg.substr(7,0) + "<br>");
                                 document.write(msg.substring(7,0));
                         </script>
+
+                        Ex:
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                        <script type="text/javascript">
+                                function VerifyOTP(){
+                                var otp = document.getElementById("txtOTP").value;
+                                var error = document.getElementById("error");
+                                if(otp.trim()=="4424"){
+                                        error.innerHTML = "OTP Verified".fontcolor('green');
+                                } else {
+                                        error.innerHTML = "Invalid OTP".fontcolor('red');
+                                }
+                                }
+                        </script>
+                        </head>
+                        <body>
+                        <dl>
+                                <dt>Your OTP</dt>
+                                <dd><input type="text" id="txtOTP" onblur="VerifyOTP()"></dd>
+                                <dd id="error"></dd>
+                        </dl>
+                        </body>
+                        </html>
+
+                Boolean Type:
+                -------------
+                - Boolean types are used in decision making.
+                - JavaScript boolean types can handle 2 values "true" & "false".
+                - JavaScript boolean value can compare with 1 & 0.
+
+                                true = 1
+                                false = 0
+                syntax:
+                        var x = 1;            // number
+                        var x = true;        // boolean
+                        if(x==1) {            // true - not good
+                
+                        }
+                        if(x==true) {        // true - good 
+
+                        }
+
+                Ex:
+                        <script>
+                                var stock = false;
+                                if(stock==1){
+                                        document.write("Available");
+                                } else {
+                                        document.write("Out of Stock");
+                                }
+                        </script>
+
+                       
+                        FAQ:
+                                true + true =  ?        // 2
+                                true + 2     =  ?       // 3
+                                true + "A"     =  ?     // trueA
+                                true + false = ?        // 1
+
+                        Which HTML Attributes are boolean type?
+                                -disabled            <button  disabled>        element.disabled = false;
+                                -readonly
+                                -required
+                                -checked 
+
+                Ex: Toggle Button
+
+                Undefined type:
+                ---------------
+                - JavaScript is implicitly typed.
+                - The data type of variable is determined according to the value defined.
+                - If variable is not defined with a value then the compiler will set it to "undefined".
+
+                Syntax:
+                        var  price;
+                        document.write("Price=" + price);           // Price=undefined
+
+                - The keyword "undefined" can be used to verify value defined or not.
+
+                Ex:
+                <script>
+                        var name = "Samsung TV";
+                        var price;
+                        if(price==undefined){
+                                document.write(`Name=${name}`);
+                        } else {
+                        document.write(`Name=${name} <br> Price=${price}`);
+                        }
+                </script>
+
+                FAQ: What is "undefined" and "not-defined"?
+                Ans :
+                        undefined     => is about verifying the value
+                        not defined    => is about verifying the reference
+
+                        If value not defined in a variable then it returns "undefined".
+                        If a reference is not created and you try to access, then it returns "not defined".
+
+                null type:
+                ----------
+                - If a reference is expecting value at run time and it is not provided, then "null" will be set.
+                
+                                var x;
+                                document.write("x=" + x);           // x = undefined
+
+                                var x = prompt("Enter X");
+                                document.write("x=" + x);            prompt is canceled  // x= null
+
+                Ex:
+                <script>
+                        var x;
+                        var y = prompt("Enter value for Y");
+                        if(y==null){
+                                document.write("Please provide value for Y");
+                        } else {
+                                document.write(`X=${x} <br> Y=${y}`);
+                        }
+                </script>
+
+
+                Ex: Good Code for Defined or Undefined
+
+                <script>
+                        var price;
+                        if(price)
+                        {
+                                document.write("Price=" + price);
+                        } else {
+                                
+                                document.write("Price not defined");
+                        }
+                </script>
