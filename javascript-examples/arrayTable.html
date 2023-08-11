@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+            var categories = ["All", "Electronics", "Footware", "Kids Fashion"];
+            function bodyload(){
+               categories.forEach(function(value){
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML= value;
+                tr.appendChild(td);
+                document.querySelector("tbody").appendChild(tr);
+               })
+            }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Categories List</h3>
+    <table border="1" width="300">
+        <thead>
+            <tr>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>

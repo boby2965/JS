@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+            var categories = ["All", "Electronics", "Footware", "Kids Fashion"];
+            function bodyload(){
+                var select= document.createElement("select");
+                for (var item of categories)
+                {
+                    var option= document.createElement("option");
+                    option.value= item;
+                    option.innerHTML= item;
+                    select.appendChild(option);
+                    document.querySelector("div").appendChild(select);
+                }
+            }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Categories List</h3>
+    <div>
+       
+    </div>
+</body>
+</html>

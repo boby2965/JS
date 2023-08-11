@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+            var categories = ["All", "Electronics", "Footware", "Fashion"];
+            function bodyload(){
+                categories.map(function(value){
+                    var li= document.createElement("li");
+                    li.innerHTML= value;
+                    document.querySelector("ol").appendChild(li);
+                })
+            }
+    </script>
+</head>
+<body onload="bodyload()">
+    <h3>Categories List</h3>
+    <ol>
+        
+    </ol>
+</body>
+</html>
