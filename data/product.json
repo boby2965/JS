@@ -1,0 +1,8 @@
+{
+    "title": "Realme C55 (Sunshover, 64GB)",
+    "price": 10999,
+    "rating": {"rate": 4.4, "count": 20600, "reviews":12000},
+    "photo": "../public/images/realme.webp",
+    "features": ["8 GB RAM | 256 GB ROM", "17.02 cm (6.7 inch) Full HD+ Display", "64MP + 32MP + 8MP | 32MP Front Camera",
+    "5000 mAh Battery", "Dimensity 7050 Processor", "1 Year Manufacturer Warranty for Phone and 6 Months Warranty for In the Box Accessories"]
+}
