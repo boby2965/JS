@@ -5,3 +5,22 @@
     document.write(msg.substr(7,0) + "<br>");
     document.write(msg.substring(7,0));
 </script>
+
+<script>
+    var tv = {
+            "Name": "Samsung TV",
+            "Price": 35000.33,
+            "Stock": true,
+            "Cities": ["Delhi", "Hyd"],
+            "Rating": {"Rate":4.2, "Count": 4600}
+            };
+            tv.Price = 56000.33;
+            tv.Stock = false;
+    document.write(`
+            Name    : ${tv.Name} <br>
+            Price   : ${tv.Price} <br>
+            Stock   : ${(tv.Stock==true)?"Available":"Out of Stock"} <br>
+            Cities  : ${tv.Cities.toString()} <br>
+            Rating  : ${tv.Rating.Rate} [${tv.Rating.Count}]
+    `);
+</script>
