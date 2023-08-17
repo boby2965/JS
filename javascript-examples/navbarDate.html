@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<script type="text/javascript">
+    var months = ["January", "Feb", "March", "April", "May","June","July", "August", "September", "October", "November", "December"];
+    var weekdays = ["Sunday", "Mon", "Tue", "Wed", "Thu", "Fri", "Saturday"];
+
+    function DisplayClock(){
+    var now = new Date();
+    document.getElementById("clock").innerHTML = `${weekdays[now.getDay()]} ${now.getDate()} - ${months[now.getMonth()]} ${now.getFullYear()}`;
+    var hrs = now.getHours();
+    var salute = document.getElementById("salute");
+    if(hrs>=0 && hrs<=12) {
+            salute.innerHTML = "Good Morning";
+    } else if(hrs>=13 && hrs<=16) {
+            salute.innerHTML = "<span class='bi bi-sunrise-fill'></span> Good Afternoon";
+    } else if(hrs>=16 && hrs<=23) {
+            salute.innerHTML = "<span class='bi bi-sunset-fill'></span>Good Evening";
+    }
+    }
+    function DisplayTime(){
+    var now = new Date();
+    document.getElementById("time").innerHTML = now.toLocaleTimeString();
+    }
+    function bodyload(){
+    DisplayClock();
+    setInterval(DisplayTime,1000);
+    }
+</script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+<div class="btn-toolbar bg-danger text-white d-flex justify-content-between">
+        <div class="btn-group">
+        <button class="btn btn-danger">Shopper.</button>
+        </div>
+        <div class="btn-group">
+        <button class="btn btn-danger">Home</button>
+        <button class="btn btn-danger">Pages</button>
+        <button class="btn btn-danger">Blog</button>
+        </div>
+        <div class="btn-group">
+        <button class="btn btn-danger"><span id="salute"></span></button>
+        <button class="btn btn-danger"><span id="clock"></span></button>
+        <button class="btn btn-danger"><span id="time"></span></button>
+        </div>
+</div>
+</body>
+</html>
