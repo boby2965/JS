@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+        var userDetails = {
+        Card: "4444555566667890",
+        Cvv: "3456",
+        Expiry:"2024"
+        }
+        function VerifyCard(){
+        var card = document.getElementById("Card").value;
+        if(card===userDetails.Card){
+                document.getElementById("cvvContainer").style.display ="block";
+        }
+        }
+        function VerifyCvv(){
+        var cvv = document.getElementById("Cvv").value;
+        if(cvv===userDetails.Cvv) {
+                document.getElementById("expiryContainer").style.display = "block";
+        }
+        }
+        function ExpiryChange(){
+        var expiry = document.getElementById("Expiry").value;
+        if(expiry===userDetails.Expiry){
+                document.getElementById("btnPay").disabled = false;
+        }
+        }
+        function PayClick(){
+        document.write("Payment Success....");
+        }
+</script>
+</head>
+<body>
+<dl>
+        <h3>Payment Details</h3>
+        <dt>Card Number</dt>
+        <dd><input type="text" onblur="VerifyCard()" id="Card"></dd>
+        <div id="cvvContainer" style="display: none;">
+            <dt>CVV</dt>
+            <dd><input type="text" onblur="VerifyCvv()" id="Cvv" size="4"></dd>
+        </div>
+        <div id="expiryContainer" style="display: none;">
+            <dt>Expiry</dt>
+            <dd>
+                    <select id="Expiry" onchange="ExpiryChange()">
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    </select>
+            </dd>
+        </div>
+        <button id="btnPay" disabled onclick="PayClick()">Pay</button>
+</dl>
+</body>
+</html>
