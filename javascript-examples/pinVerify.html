@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+    var userDetails = {
+    UserName: "John",
+    Pin: "4560"
+    }
+    var count = 0;
+    function VerifyPin(){
+    var pin = document.getElementById("Pin").value;
+    if(pin===userDetails.Pin){
+            document.write("Verified Successfully..");
+    } else {
+            do 
+            {
+            if(count==3){
+                    document.querySelector("button").disabled = true;
+                    document.getElementById("error").innerHTML = "Card Blocked";
+            }
+            count++;
+            document.getElementById("error").innerHTML = `Invalid PIN - ${3-count} attempts left`;
+            }while(count>=3)
+    }
+    }
+</script>
+</head>
+<body>
+<dl>
+        <dt>Your PIN</dt>
+        <dd><input type="text" id="Pin"></dd>
+        <dd id="error"></dd>
+</dl>
+<button onclick="VerifyPin()">Submit</button>
+</body>
+</html>
