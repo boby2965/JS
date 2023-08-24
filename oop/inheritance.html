@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extensibility</title>
+<script>
+        class HDFC_Version1
+        {
+        Personal = "Personal Banking Services <br>";
+        NRI = "NRI Services <br>";
+        Print(){
+                document.write(`${this.Personal}<br>${this.NRI}<br>`);
+        }
+        }
+        class HDFC_Version2 extends HDFC_Version1
+        {
+        Loans = "Personal and Car Loans <br>";
+        Print(){
+                super.Print();
+                document.write(`${this.Loans} <br>`);
+        }
+        }
+        class HDFC_Version3 extends HDFC_Version2
+        {
+        AGRI = "Govt. Bank Schemes <br>";
+        Print(){
+                super.Print();
+                document.write(`${this.AGRI} <br>`);
+        }
+        }
+        function InstallClick(){
+        var ver = document.getElementById("lstVersions").value;
+        switch(ver){
+                case "ver1": 
+                document.write("<h2>Version-1 Installed</h2>");
+                var obj1 = new HDFC_Version1();
+                obj1.Print();
+                break;
+                case "ver2": 
+                document.write("<h2>Version-2 Installed</h2>");
+                var obj2 = new HDFC_Version2();
+                obj2.Print();
+                break;
+                case "ver3": 
+                document.write("<h2>Version-3 Installed</h2>");
+                var obj3 = new HDFC_Version3();
+                obj3.Print();
+                break;
+                default: 
+                document.write("Please Select a Version");
+                break;
+        }
+        }
+</script>
+</head>
+<body>
+<h3>Install Bank APP</h3>
+<select id="lstVersions">
+        <option>Select Version</option>
+        <option value="ver1">Version-1</option>
+        <option value="ver2">Version-2</option>
+        <option value="ver3">Version-3</option>
+</select>
+<button onclick="InstallClick()">Install</button>
+</body>
+</html>
