@@ -1,0 +1,4 @@
+Ajax 
+Asynchronous JavaScript And XML
+It is used for Async Request.
+It enables Partial Postback.

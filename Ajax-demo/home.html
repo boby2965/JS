@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var http = new XMLHttpRequest();
+        function HelpClick(){
+            http.open("GET", "../data/help.txt", true);
+            http.send();
+            http.onreadystatechange = function(){
+                if (http.readyState==4){
+                    document.querySelector("p").innerHTML= `<pre>${ http.responseText}</pre>`
+                }
+            }
+        }
+        function LoginClick(){
+            http.open("GET", "../javascript-examples/patternCheck.html",true);
+            http.send();
+            http.onreadystatechange = function(){
+                if (http.readyState==4){
+                    document.querySelector("p").innerHTML= http.responseText;
+                }
+            }
+        }
+        function bodyLoad(){
+            var now= new Date();
+            document.querySelector("div").innerHTML= `Page fetched on ${now.toString()}`;
+        }
+        function FetchApi(){
+            http.open("GET","http://fakestoreapi.com/products",true);
+            http.send();
+            http.onreadystatechange = function(){
+                if(http.readyState==4){
+                    var products = JSON.parse(http.responseText);
+                    products.map(product => {
+                        var ul = document.createElement("ul");
+                        var li = document.createElement("li");
+                        li.innerHTML = product.title;
+                        ul.appendChild(li);
+                        document.querySelector("p").appendChild(ul);
+                    })
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <div></div>
+    <button onclick="HelpClick()">Help</button>
+    <button onclick="LoginClick()">Login</button>
+    <button onclick="FetchApi()">Fetch Api</button>
+    <hr size="4" noshade>
+    <p></p>
+</body>
+</html>
